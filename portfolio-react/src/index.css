@@ -1,0 +1,263 @@
+    @import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
+
+@theme {
+  --color-navy: #0F172A;
+  --color-card: #1A2540;
+  --color-card-2: #1E293B;
+  --color-accent: #3B82F6;
+  --color-teal: #06B6D4;
+  --color-green: #10B981;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0F172A;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3B82F6;
+  border-radius: 3px;
+}
+
+/* AOS animations */
+[data-aos] {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-aos="fade-up"] {
+  transform: translateY(30px);
+}
+
+[data-aos="fade-right"] {
+  transform: translateX(-30px);
+}
+
+[data-aos="fade-left"] {
+  transform: translateX(30px);
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Banner shimmer */
+@keyframes bannerShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.banner-shimmer {
+  background: linear-gradient(90deg, #3B82F6, #06B6D4, #3B82F6);
+  background-size: 200% 100%;
+  animation: bannerShimmer 4s linear infinite;
+}
+
+/* Hero float */
+@keyframes heroFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.hero-float {
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+/* Badge float */
+@keyframes badgeFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+.badge-float-1 {
+  animation: badgeFloat 4s ease-in-out infinite;
+}
+
+.badge-float-2 {
+  animation: badgeFloat 5s ease-in-out infinite 1s;
+}
+
+.badge-float-3 {
+  animation: badgeFloat 6s ease-in-out infinite 2s;
+}
+
+.badge-float-4 {
+  animation: badgeFloat 4.5s ease-in-out infinite 0.5s;
+}
+
+.badge-float-5 {
+  animation: badgeFloat 5.5s ease-in-out infinite 1.5s;
+}
+
+.badge-float-6 {
+  animation: badgeFloat 6.5s ease-in-out infinite 2.5s;
+}
+
+/* Pulse dot */
+@keyframes pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+
+.pulse-dot {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Scroll bounce */
+@keyframes scrollBounce {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
+}
+
+.scroll-bounce {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* Glow float */
+@keyframes float1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(40px, 30px);
+  }
+}
+
+@keyframes float2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-30px, -20px);
+  }
+}
+
+.glow-1 {
+  animation: float1 8s ease-in-out infinite;
+}
+
+.glow-2 {
+  animation: float2 10s ease-in-out infinite;
+}
+
+/* Card top accent line */
+.card-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3B82F6, #06B6D4);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  border-radius: 16px 16px 0 0;
+}
+
+.card-accent:hover::before {
+  transform: scaleX(1);
+}
+
+/* Hamburger animation */
+.hamburger-open .bar1 {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-open .bar2 {
+  opacity: 0;
+}
+
+.hamburger-open .bar3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Modal */
+.modal-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-box {
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s;
+}
+
+.modal-overlay.active .modal-box {
+  transform: scale(1) translateY(0);
+}
